@@ -17,4 +17,4 @@ EXPOSE 4000
 ENV NAME World
 
 # Run api.py when the container launches
-CMD ["python", "app.py", "testapp.py"]
+CMD ["python", "app.py"]
