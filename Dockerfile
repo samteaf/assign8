@@ -5,10 +5,11 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+ADD . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN pip install redis  # Install the redis package
 
 # Make port 4000 available to the world outside this container
 EXPOSE 4000
@@ -16,5 +17,5 @@ EXPOSE 4000
 # Define environment variable
 ENV NAME World
 
-# Run api.py when the container launches
+# Run app.py when the container launches
 CMD ["python", "app.py"]
